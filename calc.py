@@ -11,33 +11,34 @@ def doMath():
         numTwoInt = int(numTwo)
     except ValueError:
         print("That is not an int!")
+    if isinstance(numOneInt, int) and isinstance(numTwoInt, int):
  #All of the user defined functions to perform operations.
-    def add(x, y):
-        return x + y
+        def add(x, y):
+            return x + y
 
-    def sub(x, y):
-        return x - y
+        def sub(x, y):
+            return x - y
 
-    def mult(x, y):
-        return x * y
+        def mult(x, y):
+            return x * y
 
-    def div(x, y):
-        return x / y
+        def div(x, y):
+            return x / y
 #Checking user string input to determine operation.x    
-    if operation == 'addition':
-        print(add(numOneInt, numTwoInt))
-    elif operation == 'subtraction':
-        print(sub(numOneInt, numTwoInt))
-    elif operation == 'multiply':
-        print(mult(numOneInt, numTwoInt))
-    elif operation == 'divide':
-        print(div(numOneInt, numTwoInt))
-    else:
-        print("Sorry, something went awry!")
+        if operation == 'addition':
+            print(add(numOneInt, numTwoInt))
+        elif operation == 'subtraction':
+            print(sub(numOneInt, numTwoInt))
+        elif operation == 'multiply':
+            print(mult(numOneInt, numTwoInt))
+        elif operation == 'divide':
+            print(div(numOneInt, numTwoInt))
+        else:
+            print("Sorry, something went awry!")
 #Function call to start calculator program.
 doMath()
 #Once program finishes, while loop will see if  you want to calculate again.
-calculate = 'yes'
+calculate = ''
 print('Do you want to perform another calculation? (yes or no)')
 calculate = input() 
 
