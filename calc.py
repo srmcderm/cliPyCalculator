@@ -1,48 +1,59 @@
+def calculateAgain():
+  calculate = 'yes'
+  print('Do you want to perform a calculation? (yes or no)')
+  calculate = str.lower(input()) 
+  while calculate == 'yes' or calculate == 'y':
+    doMath()
+    if calculate != "yes" or  calculate !='y':
+      break
+    
 #Creating function allows me to repeat it in while loop below.
 def doMath():
-    prompt = print("Choose operation: addition, subtraction, multiply, or divide.")
-    operation = input()
-    numOne = input("Select first number: ")
-    numTwo = input("Select second number: ")
-#Error handling to check that input str can be converted to int.
-#That way the whole program doesn't shut the user out.
-    try:
-        numOneInt = int(numOne)
-        numTwoInt = int(numTwo)
-    except ValueError:
-        print("That is not an int!")
-    if isinstance(numOneInt, int) and isinstance(numTwoInt, int):
- #All of the user defined functions to perform operations.
-        def add(x, y):
+    print("Choose operation (select number): ")
+    print("1) addition")
+    print("2) subtraction")
+    print("3) multiplication")
+    print("4) division")
+    operation = input('')
+    if(operation == "1" or operation == "2"
+      or operation == "3" or operation == "4"):
+      try:
+        numOne = int(input("Select first number: "))
+        numTwo = int(input("Select second number: "))
+      except ValueError:
+        print("You did not enter a valid number.")
+        calculateAgain()
+      else:
+   #All of the user defined functions to perform operations.
+          def add(x, y):
             return x + y
-
-        def sub(x, y):
+  
+          def sub(x, y):
             return x - y
-
-        def mult(x, y):
+  
+          def mult(x, y):
             return x * y
-
-        def div(x, y):
+  
+          def div(x, y):
             return x / y
-#Checking user string input to determine operation.x    
-        if operation == 'addition':
-            print(add(numOneInt, numTwoInt))
-        elif operation == 'subtraction':
-            print(sub(numOneInt, numTwoInt))
-        elif operation == 'multiply':
-            print(mult(numOneInt, numTwoInt))
-        elif operation == 'divide':
-            print(div(numOneInt, numTwoInt))
-        else:
-            print("Sorry, something went awry!")
-#Function call to start calculator program.
-doMath()
-#Once program finishes, while loop will see if  you want to calculate again.
-calculate = ''
-print('Do you want to perform another calculation? (yes or no)')
-calculate = input() 
+  #Checking user string input to determine operation.x    
+          if operation == "1":
+              print(add(numOne, numTwo))
+              calculateAgain()
+          elif operation == "2":
+              print(sub(numOne, numTwo))
+              calculateAgain()
+          elif operation == "3":
+              print(mult(numOne, numTwo))
+              calculateAgain()
+          elif operation == "4":
+              print(div(numOne, numTwo))
+              calculateAgain()
+          else:
+              print("Sorry, something went awry!")
+              calculateAgain()
+    else:
+      print("You did not select a valid operation.")
+      calculateAgain()
 
-while calculate == 'yes' or calculate == 'y':
-    doMath()
-else:
-    print('See you next time!')
+doMath()
